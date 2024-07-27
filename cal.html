@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+       
+        width: 200px;
+        height: 50vh;
+        padding: 50px;
+        background-color: black;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    border-radius: 15px;
+    box-shadow: 12px 12px  rgba(0, 0, 0,0.9);
+    }
+    .set{
+        float: right;
+    }
+    body{
+        background-color: wheat;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .i{
+        margin-top: -10px;
+        padding: 10%;
+        background-color: black;
+        color: whitesmoke;
+        text-align: right;
+   border: 2px solid;
+   font-size: 15px;
+   font-weight: 100;
+
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+    }
+    .btns{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 23px;
+    }
+    .btns>div{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .bn{
+        width: 40px;
+        height: 40px;
+      color: white;
+      background-color: gray;
+        border-radius: 40%;
+        border: none;
+        cursor: pointer;
+    }
+    .op{
+        background-color: rgb(120, 145, 153);
+        color: aliceblue;
+        cursor: pointer;
+    }
+
+    .bn:hover{
+        background-color: antiquewhite;
+
+    } 
+</style>
+<body>
+
+    <div class="container">
+
+       <div>
+      <input class="i" type="text" value="" onchange="" name="" id="i" autofocus/>
+       </div>
+       
+ 
+
+    <div class="btns">
+<div >
+<button class="bn op" onclick="allclr()">AC</button>
+<button class="bn op" onclick="oneclr()">|X|</button>
+<button class="bn op" onclick="convert()">+/-</button>
+<button class="bn op" value="/" onclick="handleop(event)">/</button>
+</div>
+<div>
+<button class="bn" value=7 onclick="handleval(event)">7</button>
+<button class="bn" value=8  onclick="handleval(event)">8</button>
+<button class="bn" value=9  onclick="handleval(event)">9</button>
+<button class="bn op" value="*"  onclick="handleop(event)">x</button>
+</div>
+<div>
+<button class="bn"  value=4 onclick="handleval(event)" >4</button>
+<button class="bn"  value=5 onclick="handleval(event)">5</button>
+<button class="bn"  value=6 onclick="handleval(event)">6</button>
+<button class="bn op"  value='-' onclick="handleop(event)">-</button>
+</div>
+
+<div>
+<button class="bn"  value=1 onclick="handleval(event)">1</button>
+<button class="bn"  value=2 onclick="handleval(event)">2</button>
+<button class="bn"  value=3 onclick="handleval(event)">3</button>
+<button class="bn op"  value="+" onclick="handleop(event)">+</button>
+</div>
+
+<div>
+    <button class="bn"  value="%" onclick="handleop(event)">%</button>
+    <button class="bn"  value=0 onclick="handleval(event)">0</button>
+    <button class="bn"  value='.' onclick="handleval(event)">.</button>
+    <button class="bn op"  value="=" onclick="final(event)">=</button>
+    </div>
+
+    </div>
+    </div>
+    
+</body>
+<script>
+let val=[]
+let num=[]
+function handleval(e){
+num.push(e.target.value)
+display(e.target.value)
+}
+
+function handleop(e){
+let k=num.join('')
+num.splice(0,num.length)
+val.push(k)
+val.push(e.target.value)
+display(e.target.value)
+}
+
+function final(e){
+let k=num.join('')
+num.splice(0,num.length)
+val.push(k)
+let res=0
+let c
+while(true){
+if(val.length===1){
+ res=val[0]
+ break
+    }
+if(val[1]=='+'){
+    let a=parseFloat(val[0])
+let b=parseFloat(val[2])
+c=a+b
+val.splice(0,2)
+val[0]=c
+    }
+else if(val[1]=='-'){
+let a=parseFloat(val[0])
+let b=parseFloat(val[2])
+c=a-b
+val.splice(0,2)
+val[0]=c
+    }
+    else if(val[1]=='/'){
+    let a=parseFloat(val[0])
+let b=parseFloat(val[2])
+c=a/b
+val.splice(0,2)
+val[0]=c
+    }
+else if(val[1]=='*'){
+let a=parseFloat(val[0])
+let b=parseFloat(val[2])
+c=a*b
+val.splice(0,2)
+val[0]=c
+    }
+
+else if(val[1]=='%'){
+let a=parseFloat(val[0])
+let b=parseFloat(val[2])
+c=a%b
+val.splice(0,2)
+val[0]=c
+    }
+   }
+console.log(res)
+document.getElementById('i').value=res
+}
+
+function allclr(){
+    document.getElementById('i').value=''
+    val.splice(0,val.length-1)
+    num.splice(0,val.length-1)
+    // console.log(val)
+    val=['']
+    num=['']
+    console.log(val)
+    num[0]=0
+    val[0]=0}
+function display(e){
+document.getElementById('i').value+=e
+}
+
+function oneclr(){
+    const k =document.getElementById('i').value
+      document.getElementById('i').value=k.slice(0,k.length-1) 
+       if(num.length!=0){
+        num.pop()
+       }
+       else{
+        val.pop()
+       }
+}
+
+function convert(){
+const v=document.getElementById('i').value
+document.getElementById('i').value=-v
+if(num.length!=0){
+        num.unshift('-')
+        console.log(num)
+       }
+       else{
+        
+       val.push('-')
+        console.log(val)
+       }
+}
+</script>
+</html>
