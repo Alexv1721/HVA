@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+areaOfRectangle=(width,length)=>{
+let area=width*length
+return area
+     }
+areaOfCircle=(radius)=>{
+let area=22/7*radius**2
+return area
+     }
+     areaOfTriangle=(base,height)=>{
+let area=0.5*base*height
+     }
+
+     calculatePaintingCost=(d1,d2,fun)=>{
+let res=fun(d1,d2)
+return res*2
+
+     }
+const result=calculatePaintingCost(5,5,areaOfRectangle)
+console.log(result);
+</script>
+</html>

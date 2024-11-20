@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        displyProduct=(array)=>{
+array.forEach(element => {
+    console.log(`${element.name}-$${element.price}`); 
+});
+}
+
+const product=[{id:1,name:'cake',price:500,category:'Snakcs'}
+    ,{id:2,name:'Rice',price:2000,category:'Food'},
+    {id:3,name:'Beyblade Toy',price:1500,category:'Toys'}
+    ,{id:4,name:'Mirror',price:3000,category:'Makeup'}
+]
+const productsWithTax=product.map(
+    (val,i,arr)=>{
+
+return {id:val.id,name:val.name,price:val.price+10/100*val.price,category:val.category}
+    }
+)
+
+const foodProducts=product.filter((val)=>{
+    return val.category
+})
+
+displyProduct(product)
+displyProduct(productsWithTax)
+displyProduct(foodProducts)
+
+    </script>
+</body>
+</html>
+

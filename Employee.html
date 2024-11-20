@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    class Employee{
+        constructor(name,email,age,dept,postion,salary){
+            this.name=name
+            this.email=email
+            this.age=age
+            this.dept=dept
+            this.salary=salary
+            this.postion=postion
+        }
+        introduce(){
+            console.log(`"Hello, I am ${this.name},${this.postion}"`);
+            
+        }
+        displaySalary(){
+            console.log("Salary: $"+this.salary);
+            
+        }
+    }
+const newEmployee=new Employee('Alex','alex@gmail.com',19,'CSE','employee',50000)
+const Manger=new Employee('Rocy','rocy@gmail.com',40,'CSE','Manager',100000)
+Manger.displaySalary()
+Manger.introduce()
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Foreach Example
+forEachArray=(arr,callBack)=>{
+for (let index = 0; index < arr.length; index++) {
+    callBack(arr[index],index,arr)
+}
+}
+
+let ex1=[12,43,54,25,65,2]
+
+fun1=(val,i,arr)=>{
+    console.log(val,i,arr)
+}
+forEachArray(ex1,fun1)
+
+
+
+
+
+//Map Example
+map=(arr,callBack)=>{
+    const k=[]
+for (let index = 0; index < arr.length; index++) {
+    k.push(callBack(arr[index],index,arr))
+}
+return k
+}
+
+fun2=(val,i,arr)=>{
+return val+12
+}
+const ex2=[1,2,3,4,5]
+const k=map(ex2,fun2)
+console.log(k)
+
+
+
+//Filter Example
+filter=(arr,callBack)=>{
+const k=[]
+for (let index = 0; index < arr.length; index++) {
+if(callBack(arr[index],index,arr)==''||callBack(arr[index],index,arr)==null ){
+}
+else{
+   k.push( callBack(arr[index],index,arr))
+}
+}
+return k
+
+}
+
+fun3=(val,i,arr)=>{
+if(val>10){
+    return val
+}
+}
+const ex3=[1,2,4,10,23,53]
+const r=filter(ex3,fun3)
+console.log(r);
+
+
+</script>
+</body>
+</html>

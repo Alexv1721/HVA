@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+         const  inventory=[{id:1,name:'Rice',price:1000,quantity:12}
+          ,{id:2,name:'Chocalte',price:10,quantity:2}
+          ,{id:1,name:'Fruit',price:140,quantity:1}  
+        ]
+class product{
+    constructor(id, name,price, quantity){
+        this.id=id
+        this.name=name
+        this.price=price
+        this.quantity=quantity
+    }
+}
+function displayProduct(array){
+        array.forEach(element => {
+            console.log(`${element.name}-${element.price}(${element.quantity})`);
+            
+        });
+    }
+
+function addProduct( id,
+name, price, quantity){
+    const obj=new product( id,
+    name, price, quantity)
+inventory.push(obj)
+}
+function updateProduct( id, quantity){
+inventory.find((val)=>{
+    return val.id==id
+}).quantity=quantity
+console.log(inventory);
+}
+
+function  removeProduct(id){
+const k=inventory.filter((obj)=>{
+if(obj.id!==id){
+return obj
+}
+
+})
+inventory.splice(0,inventory.length)
+k.forEach(element=>{
+    inventory.push(element)
+})
+
+console.log(inventory);
+
+
+}
+
+
+console.log(inventory)
+addProduct(4,'Cocuine',1200,1)
+console.log(inventory)
+updateProduct(4,3) 
+console.log(inventory)
+removeProduct(4)
+
+    </script>
+</body>
+</html>

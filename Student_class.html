@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student{
+            constructor(name,email,age,country,pin_code,city){
+this.name=name
+this.age=age
+this.email=email
+this.address={country:country,pin_code:pin_code,city:city}
+            }
+    greet(){
+console.log(this.name);
+
+    }
+    getfulladdress(){
+        const val=`${this.address.country},${this.address.city}-${this.address.pin_code}`
+    return val
+    }
+        }
+
+const s1=new Student('Alex','alex@gmail.com',21,'India',65233,'Tirunelveli')
+s1.greet()
+const k=s1.getfulladdress()
+console.log(k);
+
+    </script>
+</body>
+</html>

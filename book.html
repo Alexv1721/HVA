@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class Book{
+ constructor(title,author,publisher,year,genre){
+    this.title=title 
+    this.author=author 
+    this.publisher=publisher
+    this.year=year
+    this.genre=genre
+ }   
+descripe(){
+console.log("This is one of unterated book in this library.Most of the people dont know about this book. This book tell us whAT is the real purpose of life");
+
+}
+displayGenre(){
+    console.log('Genre: '+this.genre);
+    
+}
+
+}
+
+const  classicBook=new Book("Pride and Prejudice", "by Jane Austen", "published by T. Egerton " ,1813, "Classic")
+    
+console.log(classicBook);
+
+    </script>
+</body>
+</html>

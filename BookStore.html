@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const  inventory=[
+            {id:1, title:'Cant', author:'David', price:200, quantity:12}
+            ,
+            {id:2, title:'Ready', author:'SRK', price:1500, quantity:2},
+            {id:3, title:'Written', author:'Alex', price:10000, quantity:112},
+            {id:4, title:'Mistry', author:'Unknown', price:230, quantity:10}
+        ]
+
+        class Book{
+            constructor( id, title,
+            author, price, quantity){
+                this.id=id
+                this.title=title
+                this.author=author 
+                this.price=price
+                this. quantity=quantity
+            }
+        }
+   function displayBooks(){
+        inventory.forEach(element=>{
+console.log(`${element.title}-${element.author}(${element.price})`);
+
+        })
+    }
+    
+    </script>
+</body>
+</html>
